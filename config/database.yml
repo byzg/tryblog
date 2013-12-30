@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tryblog2_development
+  pool: 5
+  username: byzgaev
+  password:
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: tryblog2_test
+  pool: 5
+  username: byzgaev
+  password:
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tryblog2_production
+  pool: 5
+  username: byzgaev
+  password:
