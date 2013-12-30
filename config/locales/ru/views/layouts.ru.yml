@@ -1,0 +1,4 @@
+ru:
+  layouts:
+    application:
+      main_edit_box_label: 'Запись'
