@@ -19,3 +19,5 @@ production:
   pool: 5
   username: byzgaev
   password:
+cucumber:
+  <<: *test
