@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
-  def index
-  end
+  before_filter :prepare_new_post, only: [:index]
 
-  def create
+  private
+  def prepare_new_post
+    @new_post = Post.new
   end
 end

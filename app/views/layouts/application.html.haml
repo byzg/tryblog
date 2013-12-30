@@ -7,3 +7,6 @@
     = csrf_meta_tags
   %body
     = yield
+    = form_for @new_post, url: posts_path, remote: true do |f|
+      = f.text_area :content
+      = f.submit
