@@ -21,7 +21,6 @@
           %p.chunky-bacon
             типа ссылка
             =link_to "в контактик", "http://google.com", target: "_blank"
-            ))))
           %div
             Собственно сам выпадающий футер
             %p
@@ -34,14 +33,16 @@
           %ol#resource-tabs
             %li= link_to "Hints", "#", id: "hints_tab", class: "resource-tab resource-active"
         #editor-group.panel-group.active
+          #form_block
+            = render partial: 'posts/new', object: @new_post
           .editor.console.panel.active.editor-active#editor1
             .jquery-console-inner.jquery-console-nofocus
               -#%textarea.jquery-console-typer{style: 'position: absolute; top: 0px; left: -9999px;'}
               .jquery-console-message.jquery-console-welcome= t('.main_edit_box_label')
               .jquery-console-prompt-box
                 %span.jquery-console-prompt-label >
-                %span.jquery-console-prompt
-                  %span.jquery-console-cursor
-                    = render partial: 'posts/new', object: @new_post
+          -#      %span.jquery-console-prompt
+          -#        %span.jquery-console-cursor
           %footer
             %h4 Shortcuts & Commands
+            #footer_hedgehog

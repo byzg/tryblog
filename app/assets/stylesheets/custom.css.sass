@@ -1,7 +1,57 @@
-form#new_post
-  margin-top: -20px
-  textarea#post_content
-    border-style: none
-    outline: none
-span.jquery-console-prompt-label
-  margin-left: -14px
+$padding_form_new_post: 21px
+$margin_form_new_post: 20px
+$right_form_block: 10px
+#editor-group
+  #form_block
+    position: absolute
+    z-index: 6
+    left: 10px
+    right: $right_form_block
+    top: 10px
+    bottom: 215px
+    form#new_post
+      margin: $margin_form_new_post $margin_form_new_post 0
+      padding: $padding_form_new_post
+      height: calc(100% - #{$margin_form_new_post} - #{$padding_form_new_post})
+      position: absolute
+      right: #{-$margin_form_new_post - $padding_form_new_post}
+      left: 0px
+      #form_block_textarea
+        height: 100%
+        textarea#post_content
+          width: 100%
+          border-style: none
+          outline: none
+          resize: none
+          height: 100%
+          color: #4a473a
+      #form_block_submit
+        margin-top: 20px
+        text-align: right
+        margin-right: 20px
+        input[type='submit']
+          background-color: #4a473a
+          //background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#4a473a), to(#b7b4a8))
+          color:  #c0beb4
+          border: 0 none
+          width: 130px
+          height: 23px
+          font-family: Palatino, "Palatino Linotype", Georgia, serif
+          font-size: 175%
+          border-radius: 10px
+        input[type='submit']:focus
+          outline: none
+          box-shadow: 2px -2px 10px rgba(235, 38, 41, 0.65)
+        input[type='submit']:hover
+          opacity: 0.6
+  footer
+    padding: 0px
+    #footer_hedgehog
+      background-image: url("bg-header-d9.png")
+      background-size: 100% 94%
+      background-repeat: no-repeat
+      height: 100%
+      width: 80%
+      margin-left: 130px
+      margin-top: 10px
+

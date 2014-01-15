@@ -1,3 +1,5 @@
 = form_for new, url: posts_path, method: :post, remote: true do |f|
-  = f.text_area :content, rows: 7, cols: 67
-  = f.submit "data-disable-with" => "Saving..."
+  #form_block_textarea
+    = f.text_area :content
+  #form_block_submit
+    = f.submit t('save'), "data-disable-with" => t('saving')

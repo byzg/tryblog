@@ -10,15 +10,28 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'cucumber-rails', :require => false
   gem 'zeus'
+  gem 'quiet_assets'
 end
-gem 'selenium-webdriver'
+
 
 group :test do
+  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+  gem 'mocha', require: false
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
+  gem 'fuubar-cucumber'
+
+  #gem 'rspec-expectations'
+  #gem 'rspec-rails-mocha'
+  #gem 'assert_difference'
+  #gem 'nyan-cat-formatter', require: false
+  #gem 'simplecov'
+  #gem 'simplecov-html'
 end
 
 group :assets do
