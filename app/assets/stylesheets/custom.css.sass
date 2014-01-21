@@ -1,6 +1,39 @@
+div#challenge
+  overflow-y: scroll
 section#challenge-objective
+  $font_size_post: 13px
+  $height_one_line: calc(#{$font_size_post} + 0.3em)
+  $margin_bottom_post: 5px
   header
     padding-bottom: 1px !important
+  .challenge-instructions
+    padding-bottom: 40px
+    .post_block
+      cursor: pointer
+      position: relative
+      .post_hover
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 100%
+      .post_hover:hover
+        background-color: rgba(235, 38, 41, 0.65)
+        opacity: 0.5
+      .post
+        margin: 0 auto
+        margin-bottom: $margin_bottom_post
+        width: 95%
+        .post_subject, .post_content, .post_time
+          height: $height_one_line
+          font-size: $font_size_post
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+        .post_subject
+          color: black
+  footer
+    position: fixed !important
+    background-image: url('bg-body-01.png')
 section#challenge-panels
   $heigth0_input_post_subject: 15px
   $delta_heigth_input_post_subject: 4px
@@ -11,6 +44,7 @@ section#challenge-panels
   $padding_top_form_block_textarea: $delta_heigth_input_post_subject + 3px
   $margin_form_new_post: 20px - $delta_heigth_input_post_subject
   $right_form_block: 10px
+  position: fixed !important
   #editor-group
     #form_block
       position: absolute
@@ -42,6 +76,7 @@ section#challenge-panels
           textarea#post_content
             resize: none
             height: 100%
+            width: calc(100% - 5px)
         #form_block_submit
           margin-top: 20px
           text-align: right

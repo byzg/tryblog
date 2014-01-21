@@ -1,4 +1,4 @@
-= form_for new, url: posts_path, method: :post, remote: true do |f|
+= form_for @post, url: posts_path, method: :post, remote: true do |f|
   = f.text_field :subject, placeholder: " #{t('.subject_placeholder')}"
   #form_block_textarea
     = f.text_area :content

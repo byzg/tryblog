@@ -1,4 +1,4 @@
 ru:
   posts:
-    new:
+    form:
       subject_placeholder: 'тема записи'

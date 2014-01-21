@@ -1,1 +1,5 @@
-jQuery('.challenge-instructions').append ("#{j render partial: 'posts/post', object: resource}");
+$('.challenge-instructions').append ("#{j render partial: 'posts/post', object: @post}");
+-#localStorage['editing'] = 'true';
+-#localStorage['edited_post_id'] = "#{@post.id}";
+$('form#new_post').attr('action', "/posts/#{@post.id}");
+$('form#new_post').attr('method', 'put');

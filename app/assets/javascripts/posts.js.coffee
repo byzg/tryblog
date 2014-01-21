@@ -2,17 +2,17 @@ $ ->
   $( document ).ready ->
     txta = $("textarea#post_content")
     sbjt = $('input#post_subject')
-    if $('form#new_post').length
+    psbl = $('.post_block')
+    fnps = $('form#new_post')
+    if fnps.length
       txta.focus()
       sbjt_plhd = sbjt.attr('placeholder')
       sbjt.focus ->
         sbjt.attr('placeholder', '')
       sbjt.blur ->
         sbjt.attr('placeholder', sbjt_plhd)
-      $('input[type="submit"]').click ->
-        setTimeout(
-          ->
-            txta.val("")
-            sbjt.val("")
-          , 100
-        )
+      if psbl.length
+        psbl.click ->
+          post = $(this).children('.post')
+          sbjt.val(post.children('.post_subject').text())
+          txta.val(post.children('.post_content').text())

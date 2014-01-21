@@ -1,2 +1,7 @@
-.post_content
-  = post.content
+-# handle in post.js.coffee
+%div{id: "post_block_#{post.id}", class: "post_block"}
+  .post_hover
+  .post
+    .post_subject= post.subject
+    .post_content= post.content
+    .post_time= post.updated_at

@@ -34,7 +34,7 @@
             %li= link_to "Hints", "#", id: "hints_tab", class: "resource-tab resource-active"
         #editor-group.panel-group.active
           #form_block
-            = render partial: 'posts/new', object: @new_post
+            = render partial: 'posts/form'
           .editor.console.panel.active.editor-active#editor1
             .jquery-console-inner.jquery-console-nofocus
               -#%textarea.jquery-console-typer{style: 'position: absolute; top: 0px; left: -9999px;'}

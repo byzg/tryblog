@@ -1,4 +1,4 @@
 Tryblog2::Application.routes.draw do
-  resources :posts, only: [:index, :create, :destroy]
+  resources :posts, only: [:index, :create, :update]
   root :to => 'posts#index'
 end
