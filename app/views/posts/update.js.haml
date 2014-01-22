@@ -1,1 +1,2 @@
 $('.challenge-instructions #post_block_#{@post.id}').html ("#{j render partial: 'posts/post', object: @post}")
+$('#post_block_#{@post.id}').effect('highlight', {color: 'rgba(235, 38, 41, 0.65)'}, 1000);
