@@ -3,4 +3,7 @@
   #form_block_textarea
     = f.text_area :content
   #form_block_submit
+    #save_confirm= t('.save_confirm.label')
     = f.submit t('save'), "data-disable-with" => t('saving')
+    #dropdown_triangle
+      &#9660;

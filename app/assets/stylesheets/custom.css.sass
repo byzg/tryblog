@@ -78,16 +78,28 @@ section#challenge-panels
             height: 100%
             width: calc(100% - 5px)
         #form_block_submit
-          margin-top: 20px
+          margin-top: 10px
           text-align: right
           margin-right: 20px
+          position: relative
+          #save_confirm
+            font-size: 14px
+          #dropdown_triangle, input[type='submit']
+            height: 23px
+            color:  #c0beb4
+          #dropdown_triangle
+            font-size: 14px
+            position: absolute
+            right: 8px
+            width: 12px
+            top: 16px
+            line-height: 25px
+            cursor: default
           input[type='submit']
             background-color: #4a473a
             //background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#4a473a), to(#b7b4a8))
-            color:  #c0beb4
             border: 0 none
             width: 130px
-            height: 23px
             font-family: Palatino, "Palatino Linotype", Georgia, serif
             font-size: 175%
             border-radius: 10px

@@ -2,3 +2,5 @@ ru:
   posts:
     form:
       subject_placeholder: 'тема записи'
+      save_confirm:
+        label: 'Сохранить запись?'
