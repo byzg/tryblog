@@ -1,9 +1,16 @@
-= form_for @post, url: posts_path, method: :post, remote: true do |f|
+= form_for @post, url: posts_path, method: :post, remote: true, html: {id: 'current1_post'} do |f|
   = f.text_field :subject, placeholder: " #{t('.subject_placeholder')}"
   #form_block_textarea
     = f.text_area :content
   #form_block_submit
-    #save_confirm= t('.save_confirm.label')
-    = f.submit t('save'), "data-disable-with" => t('saving')
-    #dropdown_triangle
+    #save_confirm_label= t('.save_confirm.label')
+    = f.submit t('save'), "data-disable-with" => t('saving'), id: 'submit_current1_post'
+    #dropdown_triangle{tabindex: 6}
       &#9660;
+      -#&#9650;
+    #save_list
+      .save_list_point Отмена
+      .save_list_point Нет
+:javascript
+  tmp = $('#form_block_submit #dropdown_triangle').text();
+  $('#form_block_submit #dropdown_triangle').text($.trim(tmp));

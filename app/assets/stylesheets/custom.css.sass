@@ -1,3 +1,8 @@
+//colors:
+$ruby: rgba(235, 38, 41, 0.65)
+$brown: #4a473a
+$gray: #c0beb4
+$opacity_hover: 0.5
 div#challenge
   overflow-y: scroll
 section#challenge-objective
@@ -17,8 +22,8 @@ section#challenge-objective
         bottom: 0
         width: 100%
       .post_hover:hover
-        background-color: rgba(235, 38, 41, 0.65)
-        opacity: 0.5
+        background-color: $ruby
+        opacity: $opacity_hover
       .post
         margin: 0 auto
         margin-bottom: $margin_bottom_post
@@ -38,11 +43,11 @@ section#challenge-panels
   $heigth0_input_post_subject: 15px
   $delta_heigth_input_post_subject: 4px
   $heigth_input_post_subject: $heigth0_input_post_subject + $delta_heigth_input_post_subject
-  $padding_top_form_new_post: 1px
-  $padding_right_form_new_post: 21px
-  $padding_bottom_form_new_post: 21px
+  $padding_top_form_current1_post: 1px
+  $padding_right_form_current1_post: 21px
+  $padding_bottom_form_current1_post: 21px
   $padding_top_form_block_textarea: $delta_heigth_input_post_subject + 3px
-  $margin_form_new_post: 20px - $delta_heigth_input_post_subject
+  $margin_form_current1_post: 20px - $delta_heigth_input_post_subject
   $right_form_block: 10px
   position: fixed !important
   #editor-group
@@ -53,15 +58,15 @@ section#challenge-panels
       right: $right_form_block
       top: 10px
       bottom: 215px
-      form#new_post
-        margin: $margin_form_new_post $margin_form_new_post 0
-        padding: $padding_top_form_new_post $padding_right_form_new_post $padding_bottom_form_new_post 21px
-        height: calc(100% - #{$margin_form_new_post} - #{$padding_bottom_form_new_post})
+      form#current1_post
+        margin: $margin_form_current1_post $margin_form_current1_post 0
+        padding: $padding_top_form_current1_post $padding_right_form_current1_post $padding_bottom_form_current1_post 21px
+        height: calc(100% - #{$margin_form_current1_post} - #{$padding_bottom_form_current1_post})
         position: absolute
-        right: #{-$margin_form_new_post - $padding_right_form_new_post}
+        right: #{-$margin_form_current1_post - $padding_right_form_current1_post}
         left: 0px
         input#post_subject, #form_block_textarea textarea#post_content
-          color: #4a473a
+          color: $brown
           outline: none
           border-style: none
           width: 100%
@@ -81,33 +86,61 @@ section#challenge-panels
           margin-top: 10px
           text-align: right
           margin-right: 20px
-          position: relative
-          #save_confirm
-            font-size: 14px
+          width: 130px
+          float: right
+          #save_confirm_label, input[type='submit']
+            width: 100%
+            font-family: Palatino, "Palatino Linotype", Georgia, serif
+          #save_confirm_label
+            font-size: 150%
+            visibility: hidden
           #dropdown_triangle, input[type='submit']
             height: 23px
-            color:  #c0beb4
+            color:  $gray
           #dropdown_triangle
             font-size: 14px
-            position: absolute
-            right: 8px
-            width: 12px
+            width: 21px
             top: 16px
             line-height: 25px
             cursor: default
+            float: right
+            top: -23px
+            position: relative
+            text-align: center
+            /////////////////////
+            display: none
+            /////////////////////
+          #dropdown_triangle:hover
+            color: #ffffff
+          #dropdown_triangle:focus
+            outline: none
           input[type='submit']
-            background-color: #4a473a
+            background-color: $brown
             //background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#4a473a), to(#b7b4a8))
             border: 0 none
-            width: 130px
-            font-family: Palatino, "Palatino Linotype", Georgia, serif
             font-size: 175%
             border-radius: 10px
           input[type='submit']:focus
             outline: none
-            box-shadow: 2px -2px 10px rgba(235, 38, 41, 0.65)
+            box-shadow: 2px -2px 10px $ruby
           input[type='submit']:hover
-            opacity: 0.6
+            opacity: $opacity_hover
+          #save_list
+            color: $gray
+            font-size: 12px
+            font-size: 13px
+            line-height: 18px
+            border: 1px solid $gray
+            border-radius: 0 0 7px 19px
+            .save_list_point
+              background-color: $brown
+              cursor: default
+            .save_list_point:hover
+              opacity: $opacity_hover
+            .save_list_point:last-child
+              border-radius:  0 0 6px 18px
+          #save_list
+            display: none
     footer
       padding: 0px
       #footer_hedgehog
