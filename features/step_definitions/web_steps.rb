@@ -44,6 +44,6 @@ When /^я нажимаю кнопку "([^"]*)"$/ do |button_name|
   end
 end
 
-Тогда(/^в диве с классом "(.*?)" должно быть "(.*?)"$/) do |css_class, text|
-  page.should have_selector("div.#{css_class}", text: /#{text}/i)
+Тогда(/^в диве "(.*?)" должно быть "(.*?)"$/) do |css_class, text|
+  page.should have_selector("div#{css_class}", text: /#{text}/i)
 end
