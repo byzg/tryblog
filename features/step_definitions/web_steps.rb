@@ -11,24 +11,12 @@ end
   page.should have_text text
 end
 
-Пусть(/^я жду "(.*?)" секунд.*$/) do |seconds|
+Пусть(/^я жду (\d+) секунд.*$/) do |seconds|
   sleep seconds.to_i
 end
 
-When /^я ввожу "([^"]*)" в поле "([^"]*)"$/ do |value, field|
-  begin
-    fill_in field, with: value
-    field = page.find_field(field)
-    begin
-      id = field[:id] if field.present?
-      page.execute_script("jQuery('##{id}').trigger('blur');") if id.present?
-    rescue
-      nil
-    end
-  rescue
-    page.execute_script("jQuery('##{field}').val('#{value}');")
-    page.execute_script("jQuery('##{field}').trigger('blur');")
-  end
+When /^я ввожу "([^"]*)" в поле "([^"]*)"$/ do |value, field_id|
+  fill_in field_id, with: value
 end
 
 When /^я нажимаю кнопку "([^"]*)"$/ do |button_name|
@@ -44,6 +32,13 @@ When /^я нажимаю кнопку "([^"]*)"$/ do |button_name|
   end
 end
 
-Тогда(/^в диве "(.*?)" должно быть "(.*?)"$/) do |css_class, text|
-  page.should have_selector("div#{css_class}", text: /#{text}/i)
+Тогда(/^должен быть селектор "(.*?)"(?: c "(.*?)")?$/) do |selector, text|
+  text ||= ""
+  page.should have_selector(selector, text: /#{text}/i)
 end
+
+
+Пусть(/^я нажимаю на селектор "(.*?)"$/) do |selector|
+  find(selector).click
+end
+

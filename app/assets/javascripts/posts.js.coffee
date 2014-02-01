@@ -47,7 +47,7 @@ $ ->
       updating_current_post(post_find_by_id(waiting_post_id), "with_saved_verification": false) if with_update
       waiting_post_id = null
   id_from_string_with_id = (str) ->
-    str.match(/\d+/).toString()
+    str.match(/\d+$/).toString()
   if fnps.length
     txta.focus()
     sbjt_plhd = sbjt.attr('placeholder')
