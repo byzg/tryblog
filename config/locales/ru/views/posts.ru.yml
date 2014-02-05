@@ -2,5 +2,8 @@ ru:
   posts:
     form:
       subject_placeholder: 'тема записи'
+      subject_placeholder_new: 'тема новой записи'
       save_confirm:
-        label: 'Сохранить запись?'
+        label: 'Сохранить изменения?'
+      new_post_button:
+        title: 'Создать новую запись'

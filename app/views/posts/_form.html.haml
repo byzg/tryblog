@@ -1,16 +1,26 @@
 = form_for @post, url: posts_path, method: :post, remote: true, html: {id: 'current1_post'} do |f|
-  = f.text_field :subject, placeholder: " #{t('.subject_placeholder')}"
+  #hidden_locales
+    .yes= t('yes')
+    .save= t('save')
+    .subject_placeholder= t('.subject_placeholder')
+    .subject_placeholder_new= t('.subject_placeholder_new')
+  = f.text_field :subject, placeholder: "#{t('.subject_placeholder_new')}"
   #form_block_textarea
     = f.text_area :content
-  #form_block_submit
-    #save_confirm_label= t('.save_confirm.label')
-    = f.submit t('save'), "data-disable-with" => t('saving'), id: 'submit_current1_post'
-    #dropdown_triangle{tabindex: 6}
-      &#9660;
-      -#&#9650;
-    #save_list
-      .save_list_point.cancel= t('cancel')
-      .save_list_point.no= t('nooooo')
+  #footer_form
+    #alert_block
+      #save_confirm= t('.save_confirm.label')
+    #form_navigation
+      #form_block_submit
+        = button_tag t('save'), "data-disable-with" => t('saving'), id: 'submit_current1_post'
+        #dropdown_triangle{tabindex: 6}
+          &#9660;
+          -#&#9650;
+        #save_list
+          .save_list_point.cancel= t('cancel')
+          .save_list_point.no= t('no')
+      #form_block_new_post
+        %p{title: t('.new_post_button.title')} +
 :javascript
   tmp = $('#form_block_submit #dropdown_triangle').text();
   $('#form_block_submit #dropdown_triangle').text($.trim(tmp));
