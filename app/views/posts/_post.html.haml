@@ -4,4 +4,5 @@
   .post
     .post_subject= post.subject
     .post_content= post.content
-    .post_time= post.created_at
+    .post_updated_at.hidden= post.updated_at
+    .post_created_at= post.created_at

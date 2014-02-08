@@ -1,3 +1,11 @@
+.hidden
+  display: none
+.unhidden
+  display: block
+.invisible
+  visibility: hidden
+.uninvisible
+  visibility: visible
 //colors:
 $ruby: rgba(235, 38, 41, 0.65)
 $brown: #4a473a
@@ -58,8 +66,6 @@ section#challenge-panels
   position: fixed !important
   #editor-group
     #form_block
-      #hidden_locales
-        display: none
       position: absolute
       z-index: 6
       left: 10px
@@ -101,8 +107,6 @@ section#challenge-panels
             font-size: 195%
             margin-top: 10px
             text-align: right
-            #save_confirm
-              visibility: hidden
           #form_navigation
             margin-top: 7px
             #form_block_submit
@@ -121,7 +125,6 @@ section#challenge-panels
                 top: -23px
                 position: relative
                 text-align: center
-                display: none
               #dropdown_triangle:hover
                 color: #ffffff
               #dropdown_triangle:focus
@@ -131,8 +134,11 @@ section#challenge-panels
                 //background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#4a473a), to(#b7b4a8))
                 border: 0 none
                 font-size: 175%
-                border-radius: 10px
                 color: $gray
+              button#submit_current1_post.round
+                border-radius: 10px
+              button#submit_current1_post.unround
+                border-radius: 10px 10px 0 0
               button#submit_current1_post:focus
                 outline: none
                 box-shadow: 2px -2px 10px $ruby
@@ -149,8 +155,6 @@ section#challenge-panels
                   @include buttons
                 .save_list_point:last-child
                   border-radius:  0 0 6px 18px
-              #save_list
-                display: none
             #form_block_new_post
               @include buttons
               width: $height_form_submit

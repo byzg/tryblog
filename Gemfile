@@ -25,7 +25,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'fuubar-cucumber'
 
-  #gem 'rspec-expectations'
   #gem 'rspec-rails-mocha'
   #gem 'assert_difference'
   #gem 'nyan-cat-formatter', require: false

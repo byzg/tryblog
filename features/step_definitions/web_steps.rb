@@ -37,8 +37,13 @@ end
   page.should have_selector(selector, text: /#{text}/i)
 end
 
-
 Пусть(/^я нажимаю на селектор "(.*?)"$/) do |selector|
   find(selector).click
 end
+
+Тогда(/^(локализованное )?value = "(.*?)" должно найтись в поле "(.*?)"$/) do |locale, value, selector|
+  value = I18n.t("#{value}") if locale
+  expect(find_field(selector).value).to eq(value)
+end
+
 

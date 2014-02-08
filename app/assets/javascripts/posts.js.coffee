@@ -25,15 +25,13 @@ $ ->
 # show==true - показать диалог, иначе  - скрыть
   saving_current_post = (show) ->
     if show
-      display = 'block'; visibility = 'visible';
-      border_radius = '10px 10px 0 0'; submit_value = 'yes'
+      pre = 'un'; submit_value = 'yes'
     else
-      display = 'none'; visibility = 'hidden';
-      border_radius = '10px'; submit_value = 'save'
-    $('#alert_block #save_confirm').css('visibility', visibility)
-    $('#save_list').css('display', display)
-    sbbt.css('border-radius', border_radius)
-    sbbt.val(hidden_locales(submit_value))
+      pre = ''; submit_value = 'save'
+    sbbt.text(hidden_locales(submit_value))
+    $('#alert_block #save_confirm').attr('class', "#{pre}invisible")
+    $('#save_list').attr('class', "#{pre}hidden")
+    sbbt.attr('class', "#{pre}round")
 
   turn_triangle = () ->
     ddtr.text(if ddtr.text() == "▼" then "▲" else "▼")
@@ -68,13 +66,13 @@ $ ->
     saving_current_post(false)
     if with_update
       if waiting_post_id.match(/^\d+$/)
-        updating_current_post(post_find_by_id(waiting_post_id), "with_saved_verification": false) if  with_update
+        updating_current_post(post_find_by_id(waiting_post_id), "with_saved_verification": false)
       else if waiting_post_id == 'NEW'
         newing_mode_post()
     waiting_post_id = null if waiting_post_id
 
   id_from_string_with_id = (str) ->
-    str.match(/\d+$/).toString()
+    if str.match(/\d+$/) then str.match(/\d+$/).toString() else null
 
   $('.challenge-instructions').delegate(".post_block", "click", ->
     sbjt.attr('placeholder', hidden_locales('subject_placeholder')) if current_post_new()
@@ -91,9 +89,17 @@ $ ->
     turn_triangle()
     if ddtr.text() == "▼" then saving_current_post(true) else saving_current_post(false)
 
-  sbbt.click ->
-    fnps.submit()
-    doing_with_press_yes_or_no_or_cancel_on_save_list()
+  sbbt.mouseup ->
+    $(@).text(hidden_locales('saving'))
+    jQuery.ajax
+      url: fnps.attr("action")
+      method: fnps.attr("method")
+      data: fnps.serialize()
+      dataType: 'script'
+      success: (data) ->
+        waiting_post_id ||= data.replace(/^.+post_block_/, "").toString().match(/\d+/).toString()
+        doing_with_press_yes_or_no_or_cancel_on_save_list()
+
   save_list_cancel.click ->
     doing_with_press_yes_or_no_or_cancel_on_save_list(false)
   save_list_no.click ->

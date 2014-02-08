@@ -1,0 +1,6 @@
+ru:
+  models:
+    post:
+      not_blank_fields:
+        subject: '<без заголовка>'
+        content: '<без текста>'
